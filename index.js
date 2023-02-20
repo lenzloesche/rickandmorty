@@ -12,9 +12,20 @@ const searchBar = createSearchBar((event) => {
   const formData = new FormData(searchBar);
   const data = Object.fromEntries(formData);
   searchQuery = data.query;
+  const alive = document.getElementById("Alive");
+  const dead = document.getElementById("Dead");
+  const unknown = document.getElementById("Unknown");
+  if (alive.checked) {
+    statusCheckbox = "alive";
+  } else if (dead.checked) {
+    statusCheckbox = "dead";
+  } else if (unknown.checked) {
+    statusCheckbox = "unknown";
+  }
   page = 1;
   fetchCharacters();
 });
+
 const navigation = document.querySelector('[data-js="navigation"]');
 const prevButton = createButton("previous", () => {
   if (page > 1) {
@@ -35,16 +46,18 @@ searchBarContainer.append(searchBar);
 let maxPage = 1;
 let page = 1;
 let searchQuery = "";
+let statusCheckbox = "";
 
 // Fetch Characters
 
 async function fetchCharacters() {
-  const url = `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}`;
+  const url = `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}&status=${statusCheckbox}`;
   cardContainer.innerHTML = "";
   try {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
+      console.log(data);
       maxPage = Number(data.info.pages);
       pagination.textContent = `${page} / ${maxPage}`;
       data.results.forEach((character) => {

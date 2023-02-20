@@ -14,7 +14,16 @@ export function createSearchBar(onSubmit) {
         src="assets/magnifying-glass.png"
         alt=""
       />
-    </button>`;
+      </button> 
+      <label for="no-status">All status</label>
+      <input type="radio" id="no-status" name="status" checked/>
+    <label for="Alive">Alive</label>
+    <input type="radio" id="Alive" name="status" value="alive"/>
+    <label for="Dead">Dead</label>
+    <input type="radio" id="Dead" name="status"/>
+    <label for="Unknown">Unknown</label>
+    <input type="radio" id="Unknown" name="status"/>
+    `;
   searchBar.addEventListener("submit", onSubmit);
   return searchBar;
 }
