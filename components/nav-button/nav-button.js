@@ -1,6 +1,7 @@
-export function createButton(whichOne) {
+export function createButton(text, onClick) {
   const button = document.createElement("button");
-  button.classList.add("button", `button--${whichOne}`);
-  button.innerText = whichOne;
+  button.classList.add("button");
+  button.innerText = text;
+  button.addEventListener("click", onClick);
   return button;
 }

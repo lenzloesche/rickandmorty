@@ -1,4 +1,4 @@
-export function createSearchBar() {
+export function createSearchBar(onSubmit) {
   const searchBar = document.createElement("form");
   searchBar.classList.add("search-bar");
   searchBar.innerHTML = `<input
@@ -15,5 +15,6 @@ export function createSearchBar() {
         alt=""
       />
     </button>`;
+  searchBar.addEventListener("submit", onSubmit);
   return searchBar;
 }
