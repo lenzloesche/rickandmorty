@@ -9,18 +9,13 @@ const searchBarContainer = document.querySelector(
 );
 const searchBar = createSearchBar((event) => {
   event.preventDefault();
-  const formData = new FormData(searchBar);
+  const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
   searchQuery = data.query;
-  const alive = document.getElementById("Alive");
-  const dead = document.getElementById("Dead");
-  const unknown = document.getElementById("Unknown");
-  if (alive.checked) {
-    statusCheckbox = "alive";
-  } else if (dead.checked) {
-    statusCheckbox = "dead";
-  } else if (unknown.checked) {
-    statusCheckbox = "unknown";
+  if (data.status === "no-status") {
+    statusCheckbox = "";
+  } else {
+    statusCheckbox = data.status;
   }
   page = 1;
   fetchCharacters();
@@ -57,7 +52,6 @@ async function fetchCharacters() {
     const response = await fetch(url);
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       maxPage = Number(data.info.pages);
       pagination.textContent = `${page} / ${maxPage}`;
       data.results.forEach((character) => {
