@@ -18,7 +18,7 @@ let searchQuery = "";
 // Fetch Characters
 
 async function fetchCharacters() {
-  const url = `https://rickandmortyapi.com/api/character?page=${page}`;
+  const url = `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}`;
   cardContainer.innerHTML = "";
   try {
     const response = await fetch(url);
@@ -37,13 +37,12 @@ async function fetchCharacters() {
   }
 }
 
-fetchCharacters(page);
+fetchCharacters();
 
 prevButton.addEventListener("click", () => {
   if (page > 1) {
     page--;
     fetchCharacters();
-    return;
   }
 });
 
@@ -51,6 +50,15 @@ nextButton.addEventListener("click", () => {
   if (page < maxPage) {
     page++;
     fetchCharacters();
-    return;
   }
+});
+
+searchBar.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(searchBar);
+  const data = Object.fromEntries(formData);
+  console.log(data);
+  searchQuery = data.query;
+  page = 1;
+  fetchCharacters();
 });
