@@ -7,5 +7,11 @@
 }
 
 .button:hover {
+  cursor: pointer;
   background-color: var(--color-nemo);
+}
+
+.button:disabled {
+  background-color: darkgray;
+  color: transparent;
 }
