@@ -47,8 +47,13 @@
   background-color: var(--color-water-10);
 }
 .transform-card {
-  transition: 0.3s ease-out;
+  transition: 0.2s ease-out;
   transform: rotateY(360deg);
+}
+
+.transform-card-back {
+  transition: 0.3s ease-out;
+  transform: rotateY(0deg);
 }
 .card--front-side {
   background-color: white;
