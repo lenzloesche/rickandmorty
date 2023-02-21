@@ -23,29 +23,14 @@ const searchBar = createSearchBar((event) => {
 
 const navigation = document.querySelector('[data-js="navigation"]');
 const prevButton = createButton("previous", () => {
-  /* nextButton.disabled = false; */
   if (page > 1) {
     page--;
-    /*     if (page === 1) {
-      prevButton.disabled = true;
-    } else {
-      prevButton.disabled = false;
-    } */
     fetchCharacters();
-  } else {
-    /* prevButton.disabled = true; */
   }
 });
 const nextButton = createButton("next", () => {
-  /* prevButton.disabled = false; */
-
   if (page < maxPage) {
     page++;
-    /*   if (page === maxPage) {
-      nextButton.disabled = true;
-    } else {
-       nextButton.disabled = false; 
-    } */
     fetchCharacters();
   }
 });
@@ -126,10 +111,10 @@ function createErrorDisplay(errorMessage) {
 
 fetchCharacters();
 
-function mockServerError() {
+/* function mockServerError() {
   return {
     status: 404,
     statusText: "Server error",
     responseText: "",
   };
-}
+} */
