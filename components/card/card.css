@@ -62,3 +62,13 @@
 .card:hover {
   cursor: pointer;
 }
+
+.diagramBorder {
+  border: 1px solid black;
+  width: 102px;
+}
+
+.diagram {
+  background-color: red;
+  height: 20px;
+}
