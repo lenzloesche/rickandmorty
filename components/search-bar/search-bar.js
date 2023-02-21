@@ -22,7 +22,7 @@ export function createSearchBar(onSubmit) {
     <label for="Dead">Dead</label>
     <input type="radio" id="Dead" name="status" value="dead"/>
     <label for="Unknown">Unknown</label>
-    <input type="radio" id="Unknown" name="status" value="dead"/>
+    <input type="radio" id="Unknown" name="status" value="unknown"/>
     `;
   searchBar.addEventListener("submit", onSubmit);
   return searchBar;
