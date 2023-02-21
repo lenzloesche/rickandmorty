@@ -50,6 +50,7 @@ async function fetchCharacters() {
   cardContainer.innerHTML = "";
   try {
     const response = await fetch(url);
+    //const response = await mockServerError();
     if (response.ok) {
       const data = await response.json();
       maxPage = Number(data.info.pages);
@@ -58,11 +59,51 @@ async function fetchCharacters() {
         cardContainer.append(createCharacterCard(character));
       });
     } else {
-      console.log("Error: " + response.status);
+      console.log("response not ok " + response.status);
+      throw new Error(response.status);
     }
   } catch (error) {
-    console.log(error);
+    console.log("catch");
+    let errorMessage = "";
+    const statusNumber = Number(error.message);
+    if (statusNumber) {
+      if ((statusNumber >= 400) & (statusNumber < 500)) {
+        errorMessage =
+          "Your mistake. Maybe searchterm wrong? Number: " + statusNumber;
+      }
+      if ((statusNumber >= 500) & (statusNumber < 600)) {
+        errorMessage = "Server problem. Number: " + statusNumber;
+      }
+    } else {
+      if (error instanceof TypeError) {
+        errorMessage = "Type Error: " + error;
+      } else {
+        errorMessage = "Unknown Error: " + error;
+      }
+    }
+    createErrorDisplay(errorMessage);
   }
 }
 
+function createErrorDisplay(errorMessage) {
+  const errorTextElement = document.createElement("p");
+  errorTextElement.style.color = "red";
+  errorTextElement.textContent = errorMessage;
+  cardContainer.append(errorTextElement);
+  const retryButton = document.createElement("button");
+  retryButton.addEventListener("click", () => {
+    fetchCharacters();
+  });
+  retryButton.textContent = "Retry";
+  cardContainer.append(retryButton);
+}
+
 fetchCharacters();
+
+function mockServerError() {
+  return {
+    status: 404,
+    statusText: "Server error",
+    responseText: "",
+  };
+}

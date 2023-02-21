@@ -16,7 +16,7 @@ export function createSearchBar(onSubmit) {
       />
       </button> 
       <label for="no-status">All status</label>
-      <input type="radio" id="no-status" name="status" value="no-status"/>
+      <input type="radio" id="no-status" name="status" value="no-status" checked/>
     <label for="Alive">Alive</label>
     <input type="radio" id="Alive" name="status" value="alive"/>
     <label for="Dead">Dead</label>
