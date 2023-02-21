@@ -46,3 +46,13 @@
   text-align: right;
   background-color: var(--color-water-10);
 }
+.transform-card {
+  transition: 0.3s ease-out;
+  transform: rotateY(360deg);
+}
+.card--front-side {
+  background-color: white;
+}
+.card--back-side {
+  height: 455px;
+}
