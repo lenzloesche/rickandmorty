@@ -55,8 +55,7 @@
   transition: 0.3s ease-out;
   transform: rotateY(0deg);
 }
-.card--front-side {
-}
+
 .card--back-side {
   height: 455px;
 }

@@ -58,18 +58,16 @@ export function createCharacterCard(character) {
 `;
 
   cardItem.addEventListener("click", () => {
-    if (cardItem.classList.contains("card--front-side")) {
-      cardItem.classList.remove("card--front-side");
+    if (cardItem.classList.contains("card--back-side")) {
+      cardItem.classList.remove("card--back-side");
+      cardItem.classList.remove("transform-card");
+      cardItem.classList.add("transform-card-back");
+      cardItem.innerHTML = frontSide;
+    } else {
       cardItem.classList.add("card--back-side");
       cardItem.classList.add("transform-card");
       cardItem.classList.remove("transform-card-back");
       cardItem.innerHTML = backSide;
-    } else {
-      cardItem.classList.remove("card--back-side");
-      cardItem.classList.add("card--front-side");
-      cardItem.classList.remove("transform-card");
-      cardItem.classList.add("transform-card-back");
-      cardItem.innerHTML = frontSide;
     }
   });
 
