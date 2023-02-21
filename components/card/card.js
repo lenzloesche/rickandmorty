@@ -24,5 +24,13 @@ export function createCharacterCard(character) {
 `;
   cardItem.classList.add("card");
 
+  if (character.status === "Alive") {
+    cardItem.style.boxShadow = "lightgreen 10px 5px 5px ";
+  } else if (character.status === "Dead") {
+    cardItem.style.boxShadow = "#3F3F38 10px 5px 5px ";
+  } else {
+    cardItem.style.boxShadow = "#D5AE2B 10px 5px 5px ";
+  }
+
   return cardItem;
 }
