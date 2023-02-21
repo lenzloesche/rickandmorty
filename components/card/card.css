@@ -60,3 +60,6 @@
 .card--back-side {
   height: 455px;
 }
+.card:hover {
+  cursor: pointer;
+}
