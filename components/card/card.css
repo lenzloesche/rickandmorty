@@ -56,7 +56,6 @@
   transform: rotateY(0deg);
 }
 .card--front-side {
-  background-color: white;
 }
 .card--back-side {
   height: 455px;
