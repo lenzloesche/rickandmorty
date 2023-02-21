@@ -59,11 +59,11 @@ async function fetchCharacters() {
         cardContainer.append(createCharacterCard(character));
       });
     } else {
-      console.log("response not ok " + response.status);
+      // console.log("response not ok " + response.status);
       throw new Error(response.status);
     }
   } catch (error) {
-    console.log("catch");
+    // console.log("catch");
     let errorMessage = "";
     const statusNumber = Number(error.message);
     if (statusNumber) {
