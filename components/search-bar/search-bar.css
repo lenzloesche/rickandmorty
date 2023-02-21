@@ -44,3 +44,17 @@
   aspect-ratio: 1 / 1;
   filter: invert();
 }
+
+.filter-container {
+  display: none;
+}
+
+/* .filter-container:hover {
+  display: block;
+} */
+.search-bar:focus-within .filter-container {
+  display: flex;
+  flex-direction: column;
+
+  /* display: grid; */
+}

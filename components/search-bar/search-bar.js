@@ -15,14 +15,25 @@ export function createSearchBar(onSubmit) {
         alt=""
       />
       </button> 
+      <div class= "filter-container" aria-label="filter for character">
+      
+      <div>
       <label for="no-status">All status</label>
       <input type="radio" id="no-status" name="status" value="no-status" checked/>
+</div>
+<div>
     <label for="Alive">Alive</label>
     <input type="radio" id="Alive" name="status" value="alive"/>
+</div> 
+<div> 
     <label for="Dead">Dead</label>
     <input type="radio" id="Dead" name="status" value="dead"/>
+    </div>  
+    <div>
     <label for="Unknown">Unknown</label>
     <input type="radio" id="Unknown" name="status" value="unknown"/>
+    </div>
+    </div>
     `;
   searchBar.addEventListener("submit", onSubmit);
   return searchBar;
