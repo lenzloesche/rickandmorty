@@ -76,4 +76,5 @@
 }
 .card__diagram-content {
   position: absolute;
+  left: 2px;
 }
