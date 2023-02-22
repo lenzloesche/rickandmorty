@@ -41,6 +41,8 @@ export function createCharacterCard(character) {
 <div class="card__content">
   <h2 class="card__title">${character.name}</h2>
   <dl class="card__info">
+  <dt class="card__info-title">Occurrences</dt>   <dd class="card__info-description"> </dd>
+  <dd class="card__info-description diagramBorder"><div class="card__diagram-content">${character.episode.length}/51</div><div class="diagram" style="width:${width}px;"></div></dd>
     <dt class="card__info-title">Gender</dt>
     <dd class="card__info-description">${character.gender}</dd>
     <dt class="card__info-title">Species</dt>
@@ -49,9 +51,7 @@ export function createCharacterCard(character) {
     <dd class="card__info-description">${character.location.name}</dd>
     <dt class="card__info-title">Origin</dt>
     <dd class="card__info-description">${character.origin.name}</dd>
-    <dt class="card__info-title">Occurrences</dt>
-    <dd class="card__info-description"></dd>
-    <dt class="card__info-title diagramBorder"><div class="diagram" style="width:${width}px;"></div></dt><dd class="card__info-description">${character.episode.length}/51</dd>
+   
     <dt class="card__info-title">Click to flip card</dt>
     <dd class="card__info-description">for less info</dd>
   </dl>

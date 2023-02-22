@@ -64,11 +64,16 @@
 }
 
 .diagramBorder {
+  position: absolute;
+  right: 0px;
   border: 1px solid black;
   width: 102px;
 }
 
 .diagram {
-  background-color: red;
+  background-color: rgb(61, 142, 155);
   height: 20px;
+}
+.card__diagram-content {
+  position: absolute;
 }
