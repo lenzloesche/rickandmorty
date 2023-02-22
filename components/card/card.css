@@ -62,3 +62,19 @@
 .card:hover {
   cursor: pointer;
 }
+
+.diagramBorder {
+  position: absolute;
+  right: 18px;
+  border: 1px solid black;
+  width: 102px;
+}
+
+.diagram {
+  background-color: rgb(61, 142, 155);
+  height: 20px;
+}
+.card__diagram-content {
+  position: absolute;
+  left: 2px;
+}
